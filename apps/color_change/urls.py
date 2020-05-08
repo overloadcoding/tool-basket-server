@@ -4,5 +4,4 @@ from . import views
 
 urlpatterns = [
     path('upload/', views.upload, name='upload'),
-    path('', views.colorch, name='colorch'),
 ]
