@@ -14,8 +14,9 @@ def upload(request):
         param = request.POST
 
         # 验证码检查
-        code = request.session.get('ver_code')
-        if code and code.lower() == param['ver_code'].lower():
+        code = request.session.get('code')
+        if code and code.lower() == param['code'].lower():
+            del request.session['code']
 
             # 文件检查
             if request.FILES.get('img') is not None:
@@ -30,6 +31,6 @@ def upload(request):
 
             return HttpResponse(dimg_bin, content_type='image')
         else:
-            return JsonResponse({'res': 'ver_code wrong'})
+            return JsonResponse({'res': 'Wrong code'})
     else:
         raise Http404

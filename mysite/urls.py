@@ -21,6 +21,6 @@ from django.urls import re_path
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('colorch/', include(('color_change.urls', 'color_change'))),
-    path('utils/', include(('utils.urls', 'utils'))),
+    path('api/colorch/', include(('color_change.urls', 'color_change'))),
+    path('api/utils/', include(('utils.urls', 'utils'))),
 ]

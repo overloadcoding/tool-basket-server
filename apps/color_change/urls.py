@@ -1,7 +1,7 @@
-from django.urls import path
+from django.urls import re_path
 
 from . import views
 
 urlpatterns = [
-    path('upload/', views.upload, name='upload'),
+    re_path('upload', views.upload, name='upload'),
 ]

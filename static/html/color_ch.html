@@ -17,9 +17,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <form id="form1" action="/colorch/upload/" method="POST" enctype="multipart/form-data">
-            <!-- {% csrf_token %} -->
-            
+          <form id="form1" action="/api/colorch/upload/" method="POST" enctype="multipart/form-data">
             <div class="container">
               <div class="row">
                 <!-- 上传图片 -->
@@ -27,7 +25,6 @@
                   <div id="div_img_pre">
                     <div id="div_img_file">
                       <span id="img_span">
-                        <!-- <object data="{% static "image/add-select.svg" %}" type="image/svg+xml"></object> -->
                         <object data="../image/add-select.svg" type="image/svg+xml"></object>
                         <br />
                         选择图片
@@ -49,8 +46,8 @@
                   
                   <div>
                     <label>验证码：</label>
-                    <input type="text" name="ver_code"/>
-                    <img src="/utils/ver_code/" onclick="">
+                    <input type="text" name="code"/>
+                    <img src="/api/utils/code/" onclick="">
                   </div>
                 
                   <input type="submit" value="Submit" />
