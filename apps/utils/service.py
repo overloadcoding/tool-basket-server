@@ -16,7 +16,7 @@ def _random_color():
     blue=random.randint(0,255) 
     return (red, green, blue)
 
-def create_verification_code(size=(120, 30),
+def create_verification_code(size=(120, 36),
                              chars=init_chars,
                              img_type='PNG',
                              mode='RGB',

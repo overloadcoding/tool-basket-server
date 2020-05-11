@@ -7,3 +7,8 @@ function change_imgfile() {
 function change_img() {
     $('#img').click();
 }
+
+function refresh_code() {
+    var url = '/api/utils/code/' + '?t=' + (new Date()).getTime();
+    $('#img_code').attr('src', url)
+}
