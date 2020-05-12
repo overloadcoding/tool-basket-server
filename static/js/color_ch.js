@@ -9,6 +9,13 @@ function change_img() {
 }
 
 function refresh_code() {
-    var url = '/api/utils/code/' + '?t=' + (new Date()).getTime();
+    var url = 'http://127.0.0.1/api/tools/code/' + '?t=' + (new Date()).getTime();
     $('#img_code').attr('src', url)
+}
+
+function upload() {
+    payload = $('#form1').serialize();
+    $.post('http://127.0.0.1/api/colorch/upload/', payload, function(data){
+        $('#img_reponse').attr('src','data:image/png;base64,' + data);
+    })
 }
