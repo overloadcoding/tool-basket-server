@@ -15,7 +15,8 @@ function refresh_code() {
 
 function upload() {
     payload = $('#form1').serialize();
-    $.post('http://127.0.0.1/api/colorch/upload/', payload, function(data){
-        $('#img_reponse').attr('src','data:image/png;base64,' + data);
-    })
+    $.post('http://127.0.0.1/api/colorch/upload/', payload, function(data, status, xhr){
+        alert(xhr.getResponseHeader("content-type"));
+        // $('#img_reponse').attr('src','data:image/png;base64,' + data);
+    });
 }

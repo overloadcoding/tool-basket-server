@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404
 from django.http import HttpResponse, JsonResponse
-from utils.lib import res
+from utils.lib import SUCCESS, FAIL, res
 
 import cv2
 import numpy as np
@@ -23,15 +23,15 @@ def upload(request):
             if request.FILES.get('img') is not None:
                 simg_bin = request.FILES['img'].read()
             else:
-                return JsonResponse(res('fail', 'Need an image'))
+                return JsonResponse(res(FAIL, 'Need an image'))
 
             # 图片底色转换
             dimg_bin = service.bg_color_cvt(simg_bin, param['bg_color'])
             if dimg_bin is None:
-                return JsonResponse({'res': 'No such color'})
+                return JsonResponse(res(FAIL, 'No such color'))
 
             return HttpResponse(dimg_bin, content_type='image')
         else:
-            return JsonResponse({'res': 'Wrong code'})
+            return JsonResponse(res(FAIL, 'Wrong code'))
     else:
         raise Http404

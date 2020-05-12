@@ -1,3 +1,6 @@
+SUCCESS = 'success'
+FAIL = 'fail'
+
 def res(status, msg, data=None):
     response = {
         'status': status,

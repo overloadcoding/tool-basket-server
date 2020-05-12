@@ -23,15 +23,15 @@
   - code：用户输入的验证码
 - 返回：
   - 请求为 GET 请求：返回 404 页面
-  - 验证码错误：'{"res": "Wrong code"}'
-  - 目标底色参数错误：'{"res": "No such color"}'
+  - 验证码错误：{"status": "fail", "data": null, "msg": "Wrong code"}
+  - 目标底色参数错误：{"status": "fail", "data": null, "msg": "No such color"}
   - 正常情况：
     - 内容：底色转换后的图片的二进制数据（JPG 格式）
     - content_type：image
 
 ### 获取验证码
 
-- 路径：`/api/utils/code/`
+- 路径：`/api/tools/code/`
 - 请求类型：GET/POST
 - 参数：无
 - 返回：
