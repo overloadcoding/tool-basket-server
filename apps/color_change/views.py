@@ -1,3 +1,5 @@
+import base64
+
 from django.shortcuts import render
 from django.http import Http404
 from django.http import HttpResponse, JsonResponse
@@ -30,7 +32,8 @@ def upload(request):
             if dimg_bin is None:
                 return JsonResponse(res(FAIL, 'No such color'))
 
-            return HttpResponse(dimg_bin, content_type='image')
+            base64_dimg_bin = str(base64.b64encode(dimg_bin))[1:].strip("'")
+            return JsonResponse(res(SUCCESS, 'success', base64_dimg_bin))
         else:
             return JsonResponse(res(FAIL, 'Wrong code'))
     else:

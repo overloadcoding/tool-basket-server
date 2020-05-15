@@ -14,15 +14,19 @@ function refresh_code() {
 }
 
 function upload() {
-    // payload = $('#form1').serialize();
-    var payload = new FormData($('#form1'));
-    $.post('/api/colorch/upload/', payload, function(data, status, xhr){
-        var ct = xhr.getResponseHeader('content-type') || '';
-        if ('application/json' != ct) {
-            alert(ct);
-            $('#img_reponse').attr('src','data:image/png;base64,' + data);
-        } else {
-            alert(data['msg']);
-        }
+    var payload = new FormData($('#form1')[0]);
+    $.ajax({
+        url: '/api/colorch/upload/',
+        type: 'POST',
+        processData: false,
+        contentType: false,
+        data: payload,
+        success: function(data){
+                    if ('success' == data['status']) {
+                        $('#img_reponse').attr('src', 'data:image/jpg;base64,' + data['data']);
+                    } else {
+                        alert(data['msg']);
+                    }
+                }
     });
 }
