@@ -38,6 +38,54 @@
   - 内容：验证码图片二进制数据（PNG 格式，图片 size 后端可控制）
   - content_type：image
 
+## 项目部署
+
+1. 克隆代码到 `/home/server/` 目录
+
+2. 安装项目依赖：`sudo pip install -r requirements.txt`
+
+3. 从 `/home/server/config_db.sql` 获取数据库用户名及密码
+
+4. 修改 Django 项目 `settings.py` 数据库连接配置
+
+   ```python
+   DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.mysql',
+           'NAME': 'DATABASE_NAME',
+           'USER': 'DATABASE_USER',
+           'PASSWORD': 'DATABASE_PASSWORD',
+           'HOST': 'localhost',
+           'PORT': '3306',
+           'OPTIONS': {
+               'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+           },
+       }
+   }
+   ```
+
+5. 迁移数据库
+
+   ```shell
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+
+6. 从 `/usr/local/etc/uwsgi.ini` 拷贝一份 uwsgi 配置到 Django 项目中，并按照目前项目修改配置
+
+7. 修改项目文件所有者：`sudo chown -R server:server tool-basket-server/`
+
+8. 维护
+
+   ```shell
+   # 启动
+   uwsgi --ini uwsgi.ini
+   # 停止
+   uwsgi --stop /var/run/uwsgi/uwsgi.pid
+   # 查看异常日志
+   cat /var/log/uwsgi/uwsgi.log
+   ```
+
 ## 待完成
 
 - django 返回 404 到 nginx
