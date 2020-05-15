@@ -89,3 +89,4 @@
 ## 待完成
 
 - django 返回 404 到 nginx
+- 返回的图片预览 div 移到 form 外
