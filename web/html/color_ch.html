@@ -14,84 +14,116 @@
   </head>
     
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <form id="form1" action="/api/colorch/upload/" method="POST" enctype="multipart/form-data">
-            <div class="container">
-              <div class="row">
-                <!-- 上传图片 -->
-                <div class="col-sm-12 col-md-4 col-lg-4">
-                  <div id="div_img_pre">
-                    <div id="div_img_file">
-                      <span id="img_span">
-                        <object data="../image/add-select.svg" type="image/svg+xml"></object>
-                        <br />
-                        选择图片
-                      </span>
-                      <input type="file" id="img" name="img" class="filepath" onchange="change_imgfile()" accept="image/*"/>
+    <header class="site-header sticky-top shadow">
+      <div class="container wrapper d-flex flex-column flex-md-row justify-content-between">
+        <nav class="navbar navbar-expand-md navbar-light" style="width: 100%;">
+          <a class="py-2" href="#">
+            <svg t="1589710289823" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1476" width="24" height="24"><path d="M979.478261 706.381913a44.521739 44.521739 0 0 1-11.842783 57.967304l-4.36313 2.849392-393.794783 227.862261-5.38713 4.763826a84.012522 84.012522 0 0 1-43.942957 17.808695l-8.102956 0.400696c-19.055304 0-37.309217-6.544696-52.045913-18.253913l-5.431652-4.719304-393.750261-227.862261a44.521739 44.521739 0 0 1-18.610087-56.186435l2.359652-4.630261a44.521739 44.521739 0 0 1 60.816696-16.250435l405.325913 234.540522 1.335652 1.513739 1.335652-1.513739 405.281391-234.540522a44.521739 44.521739 0 0 1 60.861218 16.250435z m0-222.608696a44.521739 44.521739 0 0 1-11.842783 57.967305l-4.36313 2.849391-393.794783 227.862261-5.38713 4.763826a84.012522 84.012522 0 0 1-43.942957 17.808696l-8.102956 0.400695c-19.055304 0-37.309217-6.544696-52.045913-18.253913l-5.431652-4.719304-393.750261-227.862261a44.521739 44.521739 0 0 1-18.610087-56.186435l2.359652-4.630261a44.521739 44.521739 0 0 1 60.816696-16.250434l405.325913 234.540521 1.335652 1.513739 1.335652-1.513739 405.281391-234.540521a44.521739 44.521739 0 0 1 60.861218 16.250434zM512 0c18.788174 0 36.864 6.099478 51.645217 17.185391l4.58574 3.739826 403.500521 199.68 5.609739 6.144c32.50087 35.439304 32.50087 89.889391 0 125.328696l-5.609739 6.144-403.500521 199.590957-4.541218 3.784347a86.238609 86.238609 0 0 1-43.675826 16.829218L512 578.782609c-18.788174 0-36.864-6.099478-51.645217-17.185392l-4.630261-3.784347L52.268522 358.221913l-5.609739-6.144a92.738783 92.738783 0 0 1 0-125.328696l5.609739-6.144L455.724522 20.925217l4.585739-3.739826c12.688696-9.48313 27.826087-15.315478 43.675826-16.829217z" fill="#008df0" p-id="1477"></path></svg>
+          </a>
+  
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto" style="width: 100%;">
+              <li class="nav-item ml-auto active">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item ml-auto">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item ml-auto">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container mx-auto">
+      <div class="wrapper mx-auto">
+        <div id="wrapper2">
+          <div class="row">
+            <div class="col">
+              <form id="form1" action="/api/colorch/upload/" method="POST" enctype="multipart/form-data">
+                <div class="container">
+                  <div class="row">
+                    <!-- 上传图片 -->
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                      <div id="div_img_pre">
+                        <div id="div_img_file">
+                          <span id="img_span">
+                            <object data="../image/add-select.svg" type="image/svg+xml"></object>
+                            <br />
+                            选择图片
+                          </span>
+                          <input type="file" id="img" name="img" class="filepath" onchange="change_imgfile()" accept="image/*"/>
+                        </div>
+                        <img id="img_preview" src="#" onclick="change_img()"/>
+                      </div>
                     </div>
-                    <img id="img_preview" src="#" onclick="change_img()"/>
+                    
+                    <!-- 操作按钮 -->
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                      <div class="form-group m-auto">
+                        <div>
+                          <label class="col-form-label">底色选择:</label>
+                        </div>
+                        <div>
+                          <div class="custom-control custom-radio custom-control-inline">
+                            <input class="custom-control-input" type="radio" id="optionsRadios1" name="bg_color" value="white" checked>
+                            <label class="custom-control-label" for="optionsRadios1">白色</label>
+                          </div>
+                          <div class="custom-control custom-radio custom-control-inline">
+                            <input class="custom-control-input" type="radio" id="optionsRadios2" name="bg_color" value="red">
+                            <label class="custom-control-label" for="optionsRadios2">红色</label>
+                          </div>
+                          <div class="custom-control custom-radio custom-control-inline">
+                            <input class="custom-control-input" type="radio" id="optionsRadios3" name="bg_color" value="blue">
+                            <label class="custom-control-label" for="optionsRadios3">蓝色</label>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="form-row">
+                        <label class="col-form-label">验证码：</label>
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-5">
+                          <input type="text" class="form-control" id="code" name="code">
+                        </div>
+                        <div class="form-group col-md-7">
+                          <a href="javascript:void()">
+                            <img src="/api/tools/code/" onclick="refresh_code()" id="img_code" class="border rounded">
+                          </a>
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <button class="btn btn-primary" type="button" id="button_ch" onclick="upload()">转换</button>
+                        <button class="btn btn-primary" type="button" id="button_ching" style="display: none" disabled>
+                          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                          转换中...
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="download()">下载</button>
+                      </div>
+                    </div>
+                    
+                    <!-- 预览图片 -->
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                      <div id="img_response1">
+                        <div id="img_response2">
+                          <img id="img_response" width="100%" height="100%">
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                
-                <!-- 操作按钮 -->
-                <div class="col-sm-12 col-md-4 col-lg-4">
-                  <div class="form-group m-auto">
-                    <div>
-                      <label class="col-form-label">底色选择:</label>
-                    </div>
-                    <div>
-                      <div class="custom-control custom-radio custom-control-inline">
-                        <input class="custom-control-input" type="radio" id="optionsRadios1" name="bg_color" value="white" checked>
-                        <label class="custom-control-label" for="optionsRadios1">白色</label>
-                      </div>
-                      <div class="custom-control custom-radio custom-control-inline">
-                        <input class="custom-control-input" type="radio" id="optionsRadios2" name="bg_color" value="red">
-                        <label class="custom-control-label" for="optionsRadios2">红色</label>
-                      </div>
-                      <div class="custom-control custom-radio custom-control-inline">
-                        <input class="custom-control-input" type="radio" id="optionsRadios3" name="bg_color" value="blue">
-                        <label class="custom-control-label" for="optionsRadios3">蓝色</label>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="form-row">
-                    <label class="col-form-label">验证码：</label>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md-5">
-                      <input type="text" class="form-control" id="code" name="code">
-                    </div>
-                    <div class="form-group col-md-7">
-                      <a href="javascript:void()">
-                        <img src="/api/tools/code/" onclick="refresh_code()" id="img_code" class="border rounded">
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div class="form-group">
-                    <button class="btn btn-primary" type="button" id="button_ch" onclick="upload()">转换</button>
-                    <button class="btn btn-primary" type="button" id="button_ching" style="display: none" disabled>
-                      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                      转换中...
-                    </button>
-                    <button type="button" class="btn btn-primary" onclick="download()">下载</button>
-                  </div>
-                </div>
-                
-                <!-- 预览图片 -->
-                <div class="col-sm-12 col-md-4 col-lg-4">
-                  <div id="img_response1">
-                    <div id="img_response2">
-                      <img id="img_response" width="100%" height="100%">
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>

@@ -2,28 +2,40 @@ body {
   background-image: url(../image/color_ch_bg.png);
 }
 
+.wrapper {
+  max-width: 980px;
+}
+
+.site-header {
+  background-color: rgba(0, 0, 0, .85);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: solid 1px #eaeaea;
+}
+
+#wrapper2 {
+  margin: 50px auto 50px auto;
+}
+
 #div_img_pre {
   width: 200px;
   height: 270px;
-  margin: 10px auto 0px auto;
+  margin: 10px auto 10px auto;
   border: 1px dashed #666363;
   text-align: center;
 }
-
- #div_img_file {
+#div_img_file {
   width: 100%;
   height: 100%;
   text-align: center;
   position: relative;
 }
- 
- #img_span {
-   position: absolute;
-   left: 50%;
-   top: 50%;
-   transform: translate(-50%, -50%);
+#img_span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
-  
 .filepath {
   width: 100%;
   height: 100%;
@@ -35,15 +47,13 @@ body {
   width: 100%;
   display: none;
 }
-
 #img_response1 {
   width: 200px;
   height: 270px;
-  margin: 10px auto 0px auto;
+  margin: 10px auto 10px auto;
   text-align: center;
 }
-
- #img_response2 {
+#img_response2 {
   width: 100%;
   height: 100%;
   text-align: center;

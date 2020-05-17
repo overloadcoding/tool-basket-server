@@ -90,3 +90,4 @@
 
 - django 返回 404 到 nginx
 - 返回的图片预览 div 移到 form 外
+- 卡片式风格（按钮等），参考：https://www.toptal.com/designers/subtlepatterns/page/5/
