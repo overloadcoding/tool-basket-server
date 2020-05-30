@@ -68,6 +68,8 @@
 
    ```shell
    python manage.py makemigrations
+   # cv2 报错则执行：
+   # yum install -y libSM-1.2.2-2.el7.x86_64 libXext-1.3.3-3.el7.x86_64 --setopt=protected_multilib=false
    python manage.py migrate
    ```
 
