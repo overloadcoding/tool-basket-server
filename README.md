@@ -5,8 +5,11 @@
 ## 开发测试环境
 
 1. 环境安装
-   - 安装 python3.5.4
+
+   - 安装 python 3.7.9
+
    - 安装依赖包：`pip install -r requirements.txt`（requirements.txt 文件在项目根目录中）
+
 2. 服务启动
 
    项目根目录下执行：`python manage.py runserver 80`
@@ -16,12 +19,17 @@
 ### 文件上传并修改底色
 
 - 路径：`/api/colorch/upload/`
+
 - 请求类型：POST
+
 - 参数：
+
   - img：用户选择的原图片文件
   - bg_color：目标底色（值只能为其中一个：white、red、blue）
   - code：用户输入的验证码
+
 - 返回：
+
   - 请求为 GET 请求：返回 404 页面
   - 验证码错误：{"status": "fail", "data": null, "msg": "Wrong code"}
   - 目标底色参数错误：{"status": "fail", "data": null, "msg": "No such color"}
@@ -32,9 +40,13 @@
 ### 获取验证码
 
 - 路径：`/api/tools/code/`
+
 - 请求类型：GET/POST
+
 - 参数：无
+
 - 返回：
+
   - 内容：验证码图片二进制数据（PNG 格式，图片 size 后端可控制）
   - content_type：image
 
@@ -91,5 +103,7 @@
 ## 待完成
 
 - django 返回 404 到 nginx
+
 - 返回的图片预览 div 移到 form 外
+
 - 卡片式风格（按钮等），参考：https://www.toptal.com/designers/subtlepatterns/page/5/
