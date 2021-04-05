@@ -1,0 +1,17 @@
+body {
+    background-color: #ecf0f5;
+}
+
+hr {
+    background-color: #fff;
+    height: 1px;
+    border: none;
+}
+
+#modal_sel_pro_id #sel_pro_id {
+    height: 200px;
+}
+
+.katex {
+    font-size: 1.1em;
+}

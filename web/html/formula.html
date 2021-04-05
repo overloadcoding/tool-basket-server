@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Formula Remember</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  
+  <link rel="stylesheet" href="../css/katex.min.css"/>
+  <link rel="stylesheet" href="../css/bootstrap-3.3.7.min.css"/>
+  <link rel="stylesheet" href="../css/formula.css"/>
+
+  <!-- 
+    引用
+    KaTeX: https://katex.org/docs/supported.html
+    可视化公式编辑器：http://www.wiris.com/editor/demo/en/developers
+   -->
+</head>
+
+<body>
+  
+  <div class="wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <button class="btn btn-default" type="button" data-toggle="modal" 
+          data-target="#modal_formula_remember">公式记忆</button>
+          <button class="btn btn-default" type="button" data-toggle="modal" 
+          data-target="#modal_formula_view">公式查看</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade bs-example-modal-lg" id="modal_formula_remember" tabindex="-1" role="dialog" aria-labelledby="modal_formula_remember">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Formula</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <strong>已知：</strong>
+                  <span id="modal_fr_condition" style="color: red;"></span>
+                </div>
+                <div class="panel-body">
+                  <p>
+                    <strong>问题：</strong>
+                    <!-- <span id="modal_fr_question1" style="color: blue;"></span>
+                    <span id="modal_fr_question2" style="color: blue;"></span> -->
+                    <span id="modal_fr_question1" style="color: blue;"></span>
+                    <span id="modal_fr_question2" style="color: blue;"></span>
+                  </p>
+                  <p>
+                    <strong>计算方法：</strong>
+                    <span id="modal_fr_resolvent" style="color: green;">？</span>
+                  </p>
+                  <p>
+                    <span id="test_1"></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="formulaRemember()">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade bs-example-modal-lg" id="modal_formula_view" tabindex="-1" role="dialog" aria-labelledby="modal_formula_view">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Formula</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <select multiple class="form-control" id="sel_pro_id">
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap-3.3.7.min.js"></script>
+<script defer src="../js/katex.min.js"></script>
+<script src="../js/formula.js"></script>
+
+</html>
